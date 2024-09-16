@@ -42,7 +42,7 @@ service:
 
 ingress: 
   enabled: true
-  className: "nginx"
+  className: "wordpress"
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -50,14 +50,14 @@ ingress:
     acme.cert-manager.io/http01-edit-in-place: "true"
 
   hosts:
-    - host: argo-demo.nasi181.com
+    - host: wordpress-demo.nasi181.com
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
     - secretName: argo-demo-tls
       hosts: 
-        - argo-demo.nasi181.com
+        - wordpress-demo.nasi181.com
         
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
